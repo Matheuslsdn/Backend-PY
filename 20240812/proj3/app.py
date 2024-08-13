@@ -3,6 +3,9 @@ from flask import Flask, render_template
 class proj3():
     def __init__(self):
         self.app = Flask(__name__)
+        self.defineRotas()
+
+    def defineRotas(self):   
         @self.app.route('/')
         def rotainicial():
             return render_template('index.html')

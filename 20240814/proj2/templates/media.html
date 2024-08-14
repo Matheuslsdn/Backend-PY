@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e4e4e4;
+        }
+        h1{
+            text-align: center;
+        }
+        form{
+            background-color: black;
+            margin: 0 auto;
+            width: 600px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Média</h1>
+    <form action="/media_submit" method="post">
+        <label for="nome">Digite as notas dos bimestres </label>
+        <br>
+        <input type="text" name="nota1" id="nota1">
+        <br>
+        <input type="text" name="nota2" id="nota2">
+        <br>
+        <input type="text" name="nota3" id="nota3">
+        <br>
+        <input type="text" name="nota4" id="nota4">
+        <br>
+        <input type="submit" value="ENVIAR">
+    </form>
+    {% if dados %}
+        <h2>Dados recebidos do Backend...</h2>
+        <p>{{dados}}</p>
+    {% endif %}
+</body>
+</html>

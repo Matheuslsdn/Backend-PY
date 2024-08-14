@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="texto_submit" method="post">
+        <label for="nome">Digite um texto que iremos mostrar qunato caracteres ele tem!</label>
+        <br>
+        <input type="textarea" name="texto" id="texto">
+        <br>
+        <input type="button" value="ENVIAR">
+    </form>
+    {% if dados %}
+        <h2>Dados recebidos do Backend...</h2>
+        <p>{{dados}}</p>
+    {% endif %}
+</body>
+</html>

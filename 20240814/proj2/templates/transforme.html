@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e4e4e4;
+        }
+        h1{
+            text-align: center;
+        }
+        form{
+            background-color: black;
+            margin: 0 auto;
+            width: 600px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Transforme</h1>
+    <form action="/transforme_submit" method="post">
+        <label for="nome">Transforme os metros em centimetros</label>
+        <br>
+        <input type="text" name="metros" id="metros">
+        <br>
+        <input type="submit" value="ENVIAR">
+    </form>
+    {% if dados %}
+        <h2>Dados recebidos do Backend...</h2>
+        <p>{{dados}}</p>
+    {% endif %}
+</body>
+</html>

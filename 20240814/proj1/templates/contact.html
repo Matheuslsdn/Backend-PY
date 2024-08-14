@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e4e4e4;
+        }
+        h1{
+            text-align: center;
+        }
+        form{
+            background-color: rgb(116, 116, 116);
+            margin: 0 auto;
+            margin-top: 40px;
+            width: 600px;
+            text-align: center;
+        }
+        label{
+            padding: 20px;
+            font-size: 24px;
+            margin: 10px;
+        }
+        input{
+            width: 50%;
+            height: 20px;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="contact_submit" method="post">
+        <label for="nome">Digite seu nome:</label>
+        <br>
+        <input type="text" name="nome" id="nome">
+        <br>
+        <input type="submit" value="ENVIAR">
+    </form>
+    {% if dados %}
+        <h2>Dados recebidos do Backend...</h2>
+        <p>{{dados}}</p>
+    {% endif %}
+
+</body>
+</html>

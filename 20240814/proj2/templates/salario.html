@@ -19,20 +19,29 @@
             width: 600px;
             text-align: center;
         }
+        form label{
+            color: white;
+        }
 
     </style>
 </head>
 <body>
-    <form action="texto_submit" method="post">
-        <label for="nome">Digite um texto que iremos mostrar qunato caracteres ele tem!</label>
+    <h1>Calculando quantos salários mínimos você recebe</h1>
+    <form action="/salario_submit" method="post">
+        <label for="salario_minimo">Digite o valor do salário mínimo: </label>
         <br>
-        <input type="text" name="texto" id="texto">
+        <input type="text" name="salarioMin" id="salarioMin">
         <br>
-        <input type="submit" value="ENVIAR">
+        <label for="salario_fixo">Digite quanto você ganha </label>
+        <br>
+        <input type="text" name="salarioGanho" id="salarioGanho">
+        <br>
+        <input type="submit" value="CONVERTER">
     </form>
     {% if dados %}
         <h2>Dados recebidos do Backend...</h2>
-        <p>{{dados}}</p>
+        <h4>Eu ganho {{ dados.salario }} vezes o salário mínimo</h4>
     {% endif %}
+    
 </body>
 </html>

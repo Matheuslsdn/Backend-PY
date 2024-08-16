@@ -19,20 +19,33 @@
             width: 600px;
             text-align: center;
         }
+        form label{
+            color: white;
+        }
 
     </style>
 </head>
 <body>
-    <form action="texto_submit" method="post">
-        <label for="nome">Digite um texto que iremos mostrar qunato caracteres ele tem!</label>
+    <h1>Tranformando anos e meses em dias</h1>
+    <form action="/idade_submit" method="post">
+        <label for="idade_anos">Digite a sua idade em anos: </label>
         <br>
-        <input type="text" name="texto" id="texto">
+        <input type="text" name="anos" id="anos">
         <br>
-        <input type="submit" value="ENVIAR">
+        <label for="idade_meses">Digite quantos meses: </label>
+        <br>
+        <input type="text" name="meses" id="meses">
+        <br>
+        <label for="idade_dias">Digite quantos dias</label>
+        <br>
+        <input type="text" name="dias" id="dias">
+        <br>
+        <input type="submit" value="CONVERTER">
     </form>
     {% if dados %}
         <h2>Dados recebidos do Backend...</h2>
-        <p>{{dados}}</p>
+        <h4>Eu tenho {{ dados.totalDias }} dias</h4>
     {% endif %}
+    
 </body>
 </html>

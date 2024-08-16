@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e4e4e4;
+        }
+        h1{
+            text-align: center;
+        }
+        form{
+            background-color: black;
+            margin: 0 auto;
+            width: 600px;
+            text-align: center;
+        }
+        form label{
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Calculadora de gasto ou consumo</h1>
+    <form action="/calcgasto_submit" method="post">
+        <label for="valor_gasolina">Digite o Preço do combustível</label>
+        <br>
+        <input type="text" name="gasolina" id="gasolina">
+        <br>
+        <label for="consumo_carro">Digite quanto seu carro consome por litro: </label>
+        <br>
+        <input type="text" name="consumo" id="consumo">
+        <br>
+        <label for="distancia_total">Digite a distância a percorrer: </label>
+        <br>
+        <input type="text" name="distancia" id="distancia">
+        <br>
+        <input type="submit" value="CALCULAR">
+    </form>
+    {% if dados %}
+        <h2>Dados recebidos do Backend...</h2>
+        <h4>A distância a ser percorrida é de {{ dados.distancia }} km</h4>
+        <h4>O gasto total será de R${{ dados.gasto }}</h4>
+    {% endif %}
+    
+</body>
+</html>

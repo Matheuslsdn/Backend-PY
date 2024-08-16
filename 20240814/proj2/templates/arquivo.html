@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e4e4e4;
+        }
+        h1{
+            text-align: center;
+        }
+        form{
+            background-color: black;
+            margin: 0 auto;
+            width: 600px;
+            text-align: center;
+        }
+        form label{
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Calculando o tempo que irá demorar para fazer o seu download</h1>
+    <form action="/arquivo_submit" method="post">
+        <label for="tamanho_arquivo">Digite o tamanho do arquivo: </label>
+        <br>
+        <input type="text" name="arquivo" id="arquivo">
+        <br>
+        <label for="velocidade_mbps">Digite a velocidade da sua internet em mbps</label>
+        <br>
+        <input type="text" name="velocidade" id="velocidade">
+        <br>
+        <input type="submit" value="CALCULAR">
+    </form>
+    {% if dados %}
+        <h2>Dados recebidos do Backend...</h2>
+        <h4>seu download ira demorar {{ dados.tempo }} segundos</h4>
+        <h4>em minutos é igual a {{ dados.minutos }}</h4>
+    {% endif %}
+    
+</body>
+</html>

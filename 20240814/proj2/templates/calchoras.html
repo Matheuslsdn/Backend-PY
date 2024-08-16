@@ -19,20 +19,30 @@
             width: 600px;
             text-align: center;
         }
+        form label{
+            color: white;
+        }
 
     </style>
 </head>
 <body>
-    <form action="texto_submit" method="post">
-        <label for="nome">Digite um texto que iremos mostrar qunato caracteres ele tem!</label>
+    <h1>Calculadora de salário</h1>
+    <form action="/calchoras_submit" method="post">
+        <label for="valor_hora">Digite quanto você ganha por hora: </label>
         <br>
-        <input type="text" name="texto" id="texto">
+        <input type="text" name="valor" id="valor">
         <br>
-        <input type="submit" value="ENVIAR">
+        <label for="valor_salario">Digite quantas horas você trabalha: </label>
+        <br>
+        <input type="text" name="horas" id="horas">
+        <br>
+        <input type="submit" value="CALCULAR">
     </form>
     {% if dados %}
         <h2>Dados recebidos do Backend...</h2>
-        <p>{{dados}}</p>
+        <h4>Eu trabalho {{ dados.horas }} horas.</h4>
+        <h4>E eu ganho em torno de {{ dados.salario }}.</h4>
     {% endif %}
+    
 </body>
 </html>

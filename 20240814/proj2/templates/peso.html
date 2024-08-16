@@ -19,20 +19,30 @@
             width: 600px;
             text-align: center;
         }
+        form label{
+            color: white;
+        }
 
     </style>
 </head>
 <body>
-    <form action="texto_submit" method="post">
-        <label for="nome">Digite um texto que iremos mostrar qunato caracteres ele tem!</label>
+    <h1>Calculando o seu peso atual e mostrando qual seria o ideal</h1>
+    <form action="/peso_submit" method="post">
+        <label for="altura_metros">Digite qual é a sua alturam em metros: </label>
         <br>
-        <input type="text" name="texto" id="texto">
+        <input type="text" name="altura" id="altura">
         <br>
-        <input type="submit" value="ENVIAR">
+        <label for="peso_kilos">Digite o seu peso: </label>
+        <br>
+        <input type="text" name="peso" id="peso">
+        <br>
+        <input type="submit" value="CONVERTER">
     </form>
     {% if dados %}
         <h2>Dados recebidos do Backend...</h2>
-        <p>{{dados}}</p>
+        <h4>Seu peso atual é de {{ dados.pesoatual }} quilos</h4>
+        <h4>Mas seu peso ideal é de: {{ dados.pesoIdeal }} quilos</h4>
     {% endif %}
+    
 </body>
 </html>

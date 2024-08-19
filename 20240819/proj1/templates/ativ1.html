@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            font-size: 24px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 25px;          
+        }
+    </style>
+</head>
+<body>
+    <h1>Descobrindo o maior número de uma lista</h1>
+    <form action="/ativ1_submit" method="post">
+    <label for="num_1">Número 1:</label>
+    <input type="text" id="num_1" name="num_1"><br><br>
+    <label for="num_2">Número 2:</label>
+    <input type="text" id="num_2" name="num_2"><br><br>
+    <label for="num_3">Número 3:</label>
+    <input type="text" id="num_3" name="num_3"><br><br>
+    <label for="num_4">Número 4:</label>
+    <input type="text" id="num_4" name="num_4"><br><br>
+    <input type="submit" value="Enviar">
+</form>
+    {% if dados %}
+    <h1>Lista de Números: {{ dados.num_list }}</h1>
+    <h3>O maior número da lista é: {{ dados.max_num }}</h3>
+    <h3>{{ dados.msg }}</h3>
+    {% endif %}
+</body>
+</html>

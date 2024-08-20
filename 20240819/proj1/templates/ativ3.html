@@ -23,12 +23,12 @@
     <h1>verificando o Gênero de uma pessoa</h1>
     <form action="/ativ3_submit" method="post">
         <label for="texto">Defina seu sexo com M ou F</label>
-        <input type="text" name="gen" id="gen"><br><br>
+        <input type="text" name="genero" id="genero"><br><br>
         <input type="submit" value="Enviar">
     </form>
     {% if dados %}
     <h1>Segundo o que foi verificado...</h1>
-    <h1>{{ dados.texto }}</h1>
+    <h1>{{ dados.genero }}</h1>
     {% endif %}
 </body>
 </html>

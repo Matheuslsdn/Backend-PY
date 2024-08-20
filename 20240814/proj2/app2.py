@@ -222,6 +222,31 @@ class proj2():
             pesoIdeal = pesoIdeal.replace(',', '.')
             return render_template('peso.html', dados={'pesoIdeal':pesoIdeal, 
                         'peso':peso, 'altura':altura, 'pesoatual':pesoatual})
+        
+        #atividade 18
+        @self.app.route('/math')
+        def calculo():
+            return render_template('math.html')
+        
+        @self.app.route('/math_submit', methods=['POST', 'GET'])
+        def calc():
+            n1 = request.form.get('n1')
+            n2 = request.form.get('n2')
+            n1 = n1.replace(',' , '.')
+            n2 = n2.replace(',' , '.')
+            n1 = float(n1)  
+            n2 = float(n2)  
+            n3 = (n1*2) + (n2/2)
+            n3 = f'{n3:.2f}'
+            n3 = n3.replace(',', '.')
+            somatriplo = (n1*3) + float(n3)  
+            somatriplo = f'{somatriplo:.2f}'
+            somatriplo = somatriplo.replace(',', '.')
+            n3aocubo = float(n3) ** 3 
+            n3aocubo = f'{n3aocubo:.2f}'
+            n3aocubo = n3aocubo.replace(',', '.')
+            return render_template('math.html', dados={'n1':n1, 'n2':n2,
+            'n3':n3, 'somatriplo':somatriplo, 'n3aocubo':n3aocubo})
 
 
 if __name__ == '__main__':

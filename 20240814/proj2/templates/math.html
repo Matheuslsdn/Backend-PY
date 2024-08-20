@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e4e4e4;
+        }
+        h1{
+            text-align: center;
+        }
+        form{
+            background-color: black;
+            margin: 0 auto;
+            width: 600px;
+            text-align: center;
+        }
+        form label{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>O calculo dos 3 números</h1>
+    <form action="/math_submit" method="post">
+        <label for="primeiro_numero">Digite um número: </label>
+        <br>
+        <input type="text" id="n1" name="n1">
+        <br>
+        <label for="segundo_numero">Digite um número: </label>
+        <br>
+        <input type="text" id="n1" name="n1">
+        <br>
+        <input type="submit" value="ENVIAR">
+    </form>
+    {% if dados %}
+        <h2 style="text-align: center;">Dados recebidos do Backend...</h2>
+        <h4 style="text-align: center;">Você digitou {{ dados.n1 }} e {{ dados.n2 }}.</h4>
+        <h4 style="text-align: center;">O produto do dobro do primeiro número com metade do segundo é: {{ dados.n3 }}.</h4>
+        <h4 style="text-align: center;">A soma do triplo do primeiro número com o terceiro é de: {{ dados.somatriplo }}</h4>
+        <h4 style="text-align: center;">E o terceiro elevado ao cubo é: {{ dados.n3aocubo }}</h4>
+    {% endif %}
+</body>
+</html>

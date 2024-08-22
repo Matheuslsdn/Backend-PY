@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Números</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="number"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .back-button {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #218838;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Insira 6 Números</h1>
+        <form action="/ativ6_submit" method="POST">
+            <input type="number" name="num1" placeholder="Número 1" required>
+            <input type="number" name="num2" placeholder="Número 2" required>
+            <input type="number" name="num3" placeholder="Número 3" required>
+            <input type="number" name="num4" placeholder="Número 4" required>
+            <input type="number" name="num5" placeholder="Número 5" required>
+            <input type="number" name="num6" placeholder="Número 6" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+
+
+    <div class="container">
+        <h1>Resultado dos Números</h1>
+        <div class="result">
+            <p>Multiplicação dos números positivos: {{ multiplicacao_positivos }}</p>
+            <p>Soma dos números negativos: {{ soma_negativos }}</p>
+            <p>Quantidade de zeros: {{ contagem_zeros }}</p>
+        </div>
+        <a href="/ativ6_submit" class="back-button">Inserir Novos Números</a>
+    </div>
+
+</body>
+</html>

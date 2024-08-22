@@ -168,18 +168,11 @@ class proj1():
         @self.app.route('/ativ8_submit', methods=['POST', 'GET'])
         def ativ8_submit():
             if request.method == 'POST':
-                escolha = request.form.get('escolha')
-                produto1 = request.form.get('produto1')
-                produto2 = request.form.get('produto2')
-                produto3 = request.form.get('produto3')
-                preco1 = float(request.form.get('preco1').replace(',', '.'))
-                preco2 = float(request.form.get('preco2').replace(',', '.'))
-                preco3 = float(request.form.get('preco3').replace(',', '.'))
-
+                escolha = request.form['escolha']
                 produtos = {
-                    "produto1": {"nome": produto1, "preco": preco1},
-                    "produto2": {"nome": produto2, "preco": preco2},
-                    "produto3": {"nome": produto3, "preco": preco3}
+                    "produto1": {"nome": "Dog-frango", "preco": 14.90},
+                    "produto2": {"nome": "Dog-calabresa", "preco": 14.90},
+                    "produto3": {"nome": "Dog-tudo", "preco": 19.90}
                 }
 
                 if escolha:
@@ -191,6 +184,120 @@ class proj1():
                     return render_template('ativ8.html', erro='Selecione um produto')
             else:
                 return render_template('ativ8.html')
+
+        #ativ 09
+        @self.app.route('/ativ9')
+        def ativ9():
+            return render_template('ativ9.html')
+        
+        @self.app.route('/ativ9_submit', methods=['POST', 'GET'])
+        def ativ9_submit():
+            num1 = request.form.get('num1')
+            num2 = request.form.get('num2')
+            num3 = request.form.get('num3')
+            num1 = float(num1.replace(',', '.'))
+            num2 = float(num2.replace(',', '.'))
+            num3 = float(num3.replace(',', '.'))
+    
+            numeros = [num1, num2, num3]
+            numeros.sort(reverse=True)
+    
+            return render_template('ativ9.html', dados={'num1': numeros[0], 'num2': numeros[1], 'num3': numeros[2]})
+        
+        #ativ 10
+        @self.app.route('/ativ10')
+        def ativ10():
+            return render_template('ativ10.html')
+        
+        @self.app.route('/ativ10_submit', methods=['POST', 'GET'])
+        def ativ10_submit():
+            num1 = request.form.get('num1')
+            num2 = request.form.get('num2')
+            num3 = request.form.get('num3')
+            num1 = float(num1.replace(',', '.'))
+            num2 = float(num2.replace(',', '.'))
+            num3 = float(num3.replace(',', '.'))
+    
+            numeros = [num1, num2, num3]
+            numeros.sort()
+    
+            return render_template('ativ10.html', dados={'num1': numeros[0], 'num2': numeros[1], 'num3': numeros[2]})
+        
+        #ativ 11
+        @self.app.route('/ativ11')
+        def ativ11():
+            return render_template('ativ11.html')
+        
+        @self.app.route('/ativ11_submit', methods=['POST', 'GET'])
+        def ativ11_submit():
+            m = "manha"
+            t = "tarde"
+            n = "noite"
+            escolha = request.form.get('turno')
+            if escolha == 'm':
+                return render_template('ativ11.html', dados={'turno': 'Bom dia'})
+            elif escolha == 't':
+                return render_template('ativ11.html', dados={'turno': 'Boa tarde'})
+            elif escolha == 'n':
+                return render_template('ativ11.html', dados={'turno': 'Boa noite'})
+            else:
+                return render_template('ativ11.html', dados={'turno': 'turno invalido'})
+            
+        #ativ 12
+        @self.app.route('/ativ12')
+        def ativ12():
+            return render_template('ativ12.html')
+        
+        @self.app.route('/ativ12_submit', methods=['POST', 'GET'])
+        def ativ12_submit():
+            lado1 = request.form.get('lado1')
+            lado2 = request.form.get('lado2')
+            lado3 = request.form.get('lado3')
+            lado1 = int(lado1)
+            lado2 = int(lado2)
+            lado3 = int(lado3)
+            if lado1 == lado2 and lado1 == lado3:
+                return render_template('ativ12.html', dados={'resultado': 'Equilatero'})
+            elif lado1 == lado2 or lado1 == lado3 or lado2 == lado3:
+                return render_template('ativ12.html', dados={'resultado': 'Isosceles'})
+            elif lado1 != lado2 or lado2 != lado3 or lado1 != lado3:
+                return render_template('ativ12.html', dados={'resultado': 'Escaleno'})
+            else:
+                return render_template('ativ12.html', dados={'resultado': 'Invalido'})
+            
+        #ativ 13
+        @self.app.route('/ativ13')
+        def ativ13():
+            return render_template('ativ13.html')
+        
+        @self.app.route('/ativ13_submit', methods=['POST', 'GET'])
+        def ativ13_submit():
+            if request.method == 'POST':
+                nome = request.form.get('nome')
+                salario = request.form.get('salario')
+                salario = float(salario.replace(',', '.'))
+                reajuste = ['20', '15', '10', '5']
+                if salario <= 280: 
+                    novo_salario = salario + (salario * 0.20)
+                    diferenca = novo_salario - salario
+                    return render_template('ativ13.html', dados={'nome': nome, 'salario': salario, 'reajuste': '20%', 'novo_salario': novo_salario, 'diferenca': diferenca})
+                elif salario > 280 and salario <= 700:
+                    novo_salario = salario + (salario * 0.15)
+                    diferenca = novo_salario - salario
+                    return render_template('ativ13.html', dados={'nome': nome, 'salario': salario,'reajuste': reajuste[1] + '%', 'novo_salario': novo_salario, 'diferenca': diferenca})
+                elif salario > 700 and salario <= 1500:
+                    novo_salario = salario + (salario * 0.10)
+                    diferenca = novo_salario - salario
+                    return render_template('ativ13.html', dados={'nome': nome, 'salario': salario,'reajuste': reajuste[2] + '%', 'novo_salario': novo_salario, 'diferenca': diferenca})
+                elif salario > 1500:
+                    novo_salario = salario + (salario * 0.05)
+                    diferenca = novo_salario - salario
+                    return render_template('ativ13.html', dados={'nome': nome, 'salario': salario,'reajuste': reajuste[3] + '%', 'novo_salario': novo_salario, 'diferenca': diferenca})
+                else:
+                    return render_template('ativ13.html', dados= 'informações inválidas')
+
+        
+
 
             
 

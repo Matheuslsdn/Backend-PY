@@ -20,7 +20,6 @@
         form{
             display: flex;
             flex-direction: column;
-            
             align-items: center;
             margin: 0 auto;
             margin-top: 30px;
@@ -36,19 +35,17 @@
     </style>
 </head>
 <body>
-    <h1>Escolhendo um produto</h1>
-    <form action="/ativ11_submit" method="post">
-        <label for="turno">Selecione o turno:</label>
-        <select id="turno" name="turno">
-          <option value="m">Manhã</option>
-          <option value="t">Tarde</option>
-          <option value="n">Noite</option>
-        </select>
-        <input type="submit" class="btn" value="Enviar">
-      </form>
-      
-    {% if dados %}
-    <p>{{ dados.turno }}</p>
-    {% endif %}
+    <h1>Atividade 4</h1>
+    <form action="/ativ4_submit" method="post">
+        <label for="numero">Digite um número: </label>
+        <input type="text" id="num1" name="num1"><br>
+        <label for="numero">Digite um número:</label>
+        <input type="text" id="num2" name="num2"><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <ul>
+        <h1>A soma dos números entre os valores é:</h1>
+        <h1>{{ soma }}</h1>
+    </ul>
 </body>
 </html>

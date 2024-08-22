@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            font-size: 24px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 25px;          
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            
+            align-items: center;
+            margin: 0 auto;
+            margin-top: 30px;
+            padding: 10px;
+            width: 450px;
+            background-color: rgb(236, 236, 236);
+        }
+        .btn{
+            background-color: rgb(0, 192, 0);
+            width: 100px;
+            
+            color: black;   
+        }
+    </style>
+</head>
+<body>
+    <h1>Escolhendo um produto</h1>
+    <h1>Escolhendo um produto</h1>
+    <form action="/ativ10_submit" method="post">
+        <label for="num1">Número 1:</label>
+        <input type="text" id="num1" name="num1"><br><br>
+        <label for="num2">Número 2:</label>
+        <input type="text" id="num2" name="num2"><br><br>
+        <label for="num3">Número 3:</label>
+        <input type="text" id="num3" name="num3"><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+      
+    {% if dados %}
+    <p>O número 1 é {{ dados.num1 }}.</p>
+    <p>O número 2 é {{ dados.num2 }}.</p>
+    <p>O número 3 é {{ dados.num3 }}.</p>
+    {% endif %}
+</body>
+</html>

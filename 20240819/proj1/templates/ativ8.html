@@ -40,22 +40,21 @@
     <h1>Escolhendo um produto</h1>
     <form action="/ativ8_submit" method="post">
         <label for="escolha">Selecione um produto:</label>
-        <select name="escolha" required>
-            <option value="">Selecione</option>
-            <option value="{{ produto1 }}">{{ produto1 }}</option>
-            <option value="{{ produto2 }}">{{ produto2 }}</option>
-            <option value="{{ produto3 }}">{{ produto3 }}</option>
+        <select id="escolha" name="escolha">
+          <option value="">Selecione um produto</option>
+          <option value="Dog-frango">Dog-frango</option>
+          <option value="Dog-calabresa">Dog-calabresa</option>
+          <option value="Dog-tudo">Dog-tudo</option>
         </select>
-        <br>
-        <button class="btn" type="submit">Enviar</button>
-    </form>
+        <input type="submit" value="Enviar">
+      </form>
     
     {% if mensagem %}
-        <p>{{ mensagem }}</p>
+    <p>{{ mensagem }}</p>
     {% endif %}
-    
+
     {% if erro %}
-        <p style="color: red">{{ erro }}</p>
+    <p style="color: red;">{{ erro }}</p>
     {% endif %}
 </body>
 </html>

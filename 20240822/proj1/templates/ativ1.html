@@ -36,19 +36,14 @@
     </style>
 </head>
 <body>
-    <h1>Escolhendo um produto</h1>
-    <form action="/ativ11_submit" method="post">
-        <label for="turno">Selecione o turno:</label>
-        <select id="turno" name="turno">
-          <option value="m">Manhã</option>
-          <option value="t">Tarde</option>
-          <option value="n">Noite</option>
-        </select>
-        <input type="submit" class="btn" value="Enviar">
-      </form>
-      
-    {% if dados %}
-    <p>{{ dados.turno }}</p>
+    <h1>Atividade 1</h1>
+    <form action="/ativ1_submit" method="post">
+        <label for="num1">Digite um número entre 1 e 10:</label>
+        <input type="number" id="num1" name="num1" required>
+        <button class="btn" type="submit">Enviar</button>
+    </form>
+    {% if mensagem %}
+        <p>{{ mensagem }}</p>
     {% endif %}
 </body>
 </html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            font-size: 1em;
+            margin-right: 10px;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .tabuada {
+            text-align: center;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .tabuada p {
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tabuada Online</h1>
+        <form action="/ativ5_submit" method="POST">
+            <input type="number" name="num" placeholder="Digite um número" required>
+            <button type="submit">Calcular</button>
+        </form>
+
+        <div class="tabuada">
+            {% if tabuada %}
+                {% for linha in tabuada %}
+                    <p>{{ linha }}</p>
+                {% endfor %}
+            {% else %}
+                <p>Insira um número para ver a tabuada.</p>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>

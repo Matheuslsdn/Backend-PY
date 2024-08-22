@@ -82,7 +82,50 @@ class proj1():
             maior = max(num1, num2)
             soma = sum(range(menor, maior + 1))
             return render_template('ativ4.html', soma= soma)
+
+        #ativ 05
+        @self.app.route('/ativ5')
+        def tabuada():
+            return render_template('ativ5.html')
         
+        @self.app.route('/ativ5_submit', methods=['POST', 'GET'])
+        def ativ5_submit():
+            num = request.form.get('num')
+            tabuada = []
+            for i in range(1, 11):
+                tabuada.append(f'{num} x {i} = {int(num) * i}')
+    
+            return render_template('ativ5.html', tabuada=tabuada)
+
+        #ativ 06
+        @self.app.route('/ativ6')
+        def ativ6():
+            return render_template('ativ6.html')
+        
+        @self.app.route('/ativ6_submit', methods=['POST', 'GET'])
+        def ativ6_submit():
+            if request.method == 'POST':
+                numeros = [int(request.form.get(f'num{i}')) for i in range(1, 7)]
+        
+                # Inicializando variáveis
+                multiplicacao_positivos = 1
+                soma_negativos = 0
+                contagem_zeros = 0
+
+                for numero in numeros:
+                    if numero > 0:
+                        multiplicacao_positivos *= numero
+                    elif numero < 0:
+                        soma_negativos += numero
+                    else:
+                        contagem_zeros += 1
+
+                return render_template('ativ6.html', 
+                               multiplicacao_positivos=multiplicacao_positivos, 
+                               soma_negativos=soma_negativos, 
+                               contagem_zeros=contagem_zeros)
+            return render_template('ativ6.html')
+
             
 
             

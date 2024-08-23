@@ -126,6 +126,21 @@ class proj1():
                                contagem_zeros=contagem_zeros)
             return render_template('ativ6.html')
 
+        #ativ 07
+        @self.app.route('/ativ7')
+        def ativ7():
+            return render_template('ativ7.html')
+        
+        @self.app.route('/ativ7_submit', methods=['POST', 'GET'])
+        def ativ7_submit():
+            palavra = request.form.get('palavra')
+            contador = 0
+            for letra in palavra:
+                if letra.isalpha():
+                    contador += 1
+                
+            return render_template('ativ7.html', dados= contador)
+
             
 
             

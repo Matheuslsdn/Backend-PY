@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #000000;
+        }
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            width: 150px;
+            padding: 10px;
+            font-size: 1em;
+            margin-right: 10px;
+            border: 2px solid #75b8ff;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #50c56b;
+            color: #fff;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+        button:hover {
+            background-color: #1ec442;
+        }
+        .result-container {
+            background-color: white;
+            padding: 20px;
+            margin: 0 auto;
+            text-align: center;
+            width: 50%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Atividade 8</h1>
+        <form action="/ativ8_submit" method="POST">
+            {% for i in range(1, 9) %}
+                <label for="numero{{ i }}">Número {{ i }}:</label>
+                <input type="number" id="numero{{ i }}" name="numero{{ i }}" required><br><br>
+            {% endfor %}
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
+    
+    {% if numeros %}
+        <div class="result-container">
+            <h1>Resultados</h1>
+            <p>Números pares: {{ pares|join(', ') }}</p>
+            <p>Soma dos números impares: {{ soma_impares }}</p>
+            <p>Multiplicação dos números primos: {{ mult_primos }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>

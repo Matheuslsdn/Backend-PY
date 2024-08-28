@@ -4,7 +4,17 @@ class proj1():
     def __init__(self):
         self.app = Flask(__name__)
         self.Rotas()
-
+    #função atividade 8
+    #sempre que for criar uma função, você sempre deve colocar o self como o primeiro parametro e depois você deve colocar antes das rotas para que a função seja devidamente chamada.
+    #nessa função da atividade 8 eu estou verificando se o numero é primo, ou seja se o numero é < ou = a 1 ele já retorna falso, e se 
+    def eh_primo(self, n):
+        if n <= 1:
+            return False
+        for i in range(2, int(n ** 0.5) + 1):
+            if n % i == 0:
+                return False
+        return True
+    
     def Rotas(self):
         @self.app.route('/')
         def index():
@@ -139,9 +149,67 @@ class proj1():
                 if letra.isalpha():
                     contador += 1
                 
-            return render_template('ativ7.html', dados= contador)
+            return render_template('ativ7.html', contador= contador)
+        
+        #ativ 08
+        @self.app.route('/ativ8')
+        def ativ8():
+            return render_template('ativ8.html')
 
+        @self.app.route('/ativ8_submit', methods=['POST', 'GET'])
+        def ativ8_submit():
+            numeros = []
+            for i in range(1, 9):
+                numero = request.form.get(f'numero{i}')
+                if numero:
+                    numeros.append(int(numero))
+
+            pares = [n for n in numeros if n % 2 == 0]
+            impares = [n for n in numeros if n % 2 != 0]
+            primos = [n for n in numeros if self.eh_primo(n)]
+
+            soma_impares = sum(impares)
+            mult_primos = 1
+            for primo in primos:
+                mult_primos *= primo                
+
+                return render_template('ativ8.html', numeros=numeros, pares=pares, impares=impares, primos=primos, soma_impares=soma_impares, mult_primos=mult_primos)
+
+        #ativ 09
+        @self.app.route('/ativ9')
+        def ativ9():
+            return render_template('ativ9.html')
+        
+        @self.app.route('/ativ9_submit', methods=['POST', 'GET'])
+        def ativ9_submit():
+            frase = request.form.get('frase')
+            frase = frase.lower()
+            vogais = 'aeiouãõáóéí'
+            contador = 0
+            for letra in frase:
+                if letra in vogais:
+                    contador += 1
+            return render_template('ativ9.html', frase= frase, contador_vogais= contador)
             
+        #ativ 10
+        @self.app.route('/ativ10')
+        def ativ10():
+            return render_template('ativ10.html')
+        
+        @self.app.route('/ativ10_submit', methods=['GET', 'POST'])
+        def ativ10_submit():
+            if request.method == 'POST':
+                quantidade = int(request.form.get('quantidade'))
+                numeros = {float(request.form.get(f'numero{i}')) for i in range(quantidade)}
+                menor_valor = min(numeros)
+                maior_valor = max(numeros)
+                soma = sum(numeros)
+                return render_template('ativ10.html', menor_valor=menor_valor, maior_valor=maior_valor, soma=soma)
+            return render_template('ativ10.html')
+        
+        #ativ 11
+
+
 
             
 
